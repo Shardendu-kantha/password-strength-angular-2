@@ -1,0 +1,11 @@
+<form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <div class="form-group" [ngClass]="{'has-error': password.invalid && password.touched}">
+        <label for="password">Password</label>
+        <input type="text" class="form-control" id="password" name="password" required [(ngModel)]="newUser.password" #password="ngModel">
+        <span class="help-block" *ngIf="password.invalid && password.touched">Password is required</span>
+        <div>
+            <password-strength [password]="newUser.password"></password-strength>
+        </div>
+    </div>
+</form>
